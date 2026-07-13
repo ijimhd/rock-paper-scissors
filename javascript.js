@@ -1,5 +1,3 @@
-
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -17,7 +15,7 @@ function playGame() {
     }
 
     function getHumanChoice() {
-        let answer = prompt("Give me your choice: ");
+        let answer = prompt("Rock, paper, scissors: ");
         return answer;
     }
 
@@ -26,11 +24,11 @@ function playGame() {
         computerChoice = computerChoice.toLowerCase();
 
         if (humanChoice === computerChoice){
-            return "It's a Tie!" + "Computer choice: " + computerChoice + " Your choice: " + humanChoice;
+            return "It's a Tie!";
         } else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")){
-            return "You Win!" + "Computer choice: " + computerChoice + " Your choice: " + humanChoice;
+            return "You Win!";
         } else{
-            return "You Lose!" + "Computer choice: " + computerChoice + " Your choice: " + humanChoice;
+            return "You Lose!";
         }
     }
 
