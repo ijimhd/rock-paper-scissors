@@ -1,46 +1,50 @@
-function playGame() {
+function getComputerChoice(){
+    const comp = Math.random() * 3;
+    if (comp < 1){
+        return "rock";
+    } else if (comp < 2){
+        return "paper";
+    } else{
+        return "scissors";
+    }
+}
+
+function getHumanChoice(){
+    return prompt("Rock, Paper, Scissors?");
+}
+
+
+
+function playGame(){
     let humanScore = 0;
     let computerScore = 0;
 
-    function getComputerChoice() {
-        const randomNumber = Math.random() * 3;
-
-        if (randomNumber < 1) {
-            return "rock";
-        } else if (randomNumber < 2) {
-            return "paper";
-        } else {
-            return "scissors";
-        }
-    }
-
-    function getHumanChoice() {
-        let answer = prompt("Rock, paper, scissors: ");
-        return answer;
-    }
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
 
     function playRound(humanChoice, computerChoice){
-        humanChoice = humanChoice.toLowerCase();
-        computerChoice = computerChoice.toLowerCase();
-
-        if (humanChoice === computerChoice){
+        const humanAnswer = humanChoice.toLowerCase();
+        if (humanAnswer === computerChoice){
             return "It's a Tie!";
-        } else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")){
-            return "You Win!";
-        } else{
-            return "You Lose!";
-        }
+        } else if (
+            (humanAnswer === "rock" && computerChoice === "scissors") ||
+            (humanAnswer === "paper" && computerChoice === "rock") ||
+            (humanAnswer === "scissors" && computerChoice === "paper")){
+            humanScore++;
+        return "You Win!";
+            } else{
+                computerScore++;
+                return "You Lose!";
+            }
     }
 
-    const humanOption = getHumanChoice();
-    const computerOption = getComputerChoice();
-
-    console.log(playRound(humanOption, computerOption));
-
+    console.log(playRound(humanChoice, computerChoice));
+    console.log(humanScore);
+    console.log(computerScore);
 }
 
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
